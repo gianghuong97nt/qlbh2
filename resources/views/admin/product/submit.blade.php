@@ -1,7 +1,7 @@
 @extends('admin.layouts.glance')
 
 @section('title')
-    Thêm mới sản phẩm
+    {{ trans('admin.tilteAddProduct')}}
 @endsection
 @section('content')
     <h1>Thêm mới sản phẩm</h1>

@@ -1,7 +1,7 @@
 @extends('admin.layouts.glance')
 
 @section('title')
-    Trang quản trị viên
+    {{ trans('admin.tilteDashboard')}}
 @endsection
 @section('content')
 

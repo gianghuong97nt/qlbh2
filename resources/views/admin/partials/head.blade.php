@@ -1,10 +1,6 @@
 <head>
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
     <!-- Bootstrap Core CSS -->
@@ -46,52 +42,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     </style>
     <!--pie-chart --><!-- index page sales reviews visitors pie chart -->
     <script src="{{ asset('admin_assets/js/pie-chart.js') }}" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#demo-pie-1').pieChart({
-                barColor: '#2dde98',
-                trackColor: '#eee',
-                lineCap: 'round',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-            $('#demo-pie-2').pieChart({
-                barColor: '#8e43e7',
-                trackColor: '#eee',
-                lineCap: 'butt',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-            $('#demo-pie-3').pieChart({
-                barColor: '#ffc168',
-                trackColor: '#eee',
-                lineCap: 'square',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-        });
-    </script>
+    <script src="{{asset('admin_assets/js/pieChart.js') }}" type="text/javascript"></script>
     <!-- //pie-chart --><!-- index page sales reviews visitors pie chart -->
 
     <!-- requried-jsfiles-for owl -->
     <link href="{{ asset('admin_assets/css/owl.carousel.css') }}" rel="stylesheet">
     <script src="{{ asset('admin_assets/js/owl.carousel.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $("#owl-demo").owlCarousel({
-                items : 3,
-                lazyLoad : true,
-                autoPlay : true,
-                pagination : true,
-                nav:true,
-            });
-        });
-    </script>
-    <!-- //requried-jsfiles-for owl -->
+
 </head>

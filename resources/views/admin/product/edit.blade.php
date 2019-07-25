@@ -1,7 +1,7 @@
 @extends('admin.layouts.glance')
 
 @section('title')
-    Sửa sản phẩm
+    {{ trans('admin.tilteEditProduct')}}
 @endsection
 @section('content')
     <h1>Sửa sản phẩm </h1>

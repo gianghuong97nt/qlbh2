@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -10,34 +9,29 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function index(){
+    public function index() {
         return view('admin.product.index');
     }
 
-    public function create(){
+    public function create() {
         return view('admin.product.submit');
 
     }
 
-    public function edit(){
+    public function edit() {
         return view('admin.product.edit');
 
     }
-
-    public function delete(){
-        return view('admin.product.delete');
-
-    }
-
-    public function store(){
+    
+    public function store() {
         return redirect('/admin/product');
     }
 
-    public function update(){
+    public function update() {
         return redirect('/admin/product');
     }
 
-    public function destroy(){
+    public function destroy() {
         return redirect('/admin/product');
     }
 }
