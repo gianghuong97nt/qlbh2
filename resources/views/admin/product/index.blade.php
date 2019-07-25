@@ -3,7 +3,6 @@
     {{ trans('admin.tilteProduct')}}
 @endsection
 @section('style')
-    {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">--}}
     <link href="{{asset('admin_assets/css/table_product.css')}}" rel='stylesheet' type='text/css' />
     <link href="{{asset('admin_assets/css/product.css')}}" rel='stylesheet' type='text/css' />
 @endsection
@@ -93,7 +92,6 @@
                         <tr class="product">
                             <th class="tbl_id">Mã </th>
                             <th class="tbl_name">Tên SP </th>
-                            <th class="tbl_category">Danh mục</th>
                             <th class="tbl_brand">Hãng</th>
                             <th class="tbl_supplier">Nhà CC</th>
                             <th class="tbl_quantity">SL </th>
@@ -102,13 +100,42 @@
                             <th class="tbl_price_core">Giá nhập</th>
                             <th class="tbl_price_sale">Giá bán</th>
                             <th class="tbl_note">Note</th>
-                            <th class="action tbl_action"><a class="btn btn-primary" id="btn-add-row-1" href="{{url('admin/product/create')}}"><i class="fa fa-plus" aria-hidden="true"></i></a></th>
+                            <th colspan="2"  class="action tbl_action"><a class="btn btn-primary" id="btn-add-row-1" href="{{url('admin/product/create')}}"><i class="fa fa-plus" aria-hidden="true"></i></a></th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @if( isset($products) )
+                            @foreach( $products as $product )
+                                <tr>
+                                    <td>{{ isset($product->id) ? $product->id : '' }}</td>
+                                    <td>{{ isset($product->name) ? $product->name : '' }}</td>
+                                    <td>{{ isset($product->brand) ? $product->brand : '' }}</td>
+                                    <td>{{ isset($product->supplier) ? $product->supplier: '' }}</td>
+                                    <td>{{ isset($product->quantity) ? $product->quantity : '' }}</td>
+                                    <td>{{ isset($product->color) ? $product->color : '' }}</td>
+                                    <td>{{ isset($product->size) ? $product->size : '' }}</td>
+                                    <td>{{ isset($product->priceCore) ? $product->priceCore : '' }}</td>
+                                    <td>{{ isset($product->priceSale) ? $product->priceSale : '' }}</td>
+                                    <td>{{ isset($product->note) ? $product->note : '' }}</td>
+                                    <td>
+                                        <a href="{{url('admin/product/'.$product->id.'/edit')}}" class="btn btn-warning btn-update-row-1 d-inline" id="btn_update"><i class="fa fa-pencil"></i></a>
+                                    </td>
+                                    <td>
+                                        <form name="product" action="{{url('admin/product/'.$product->id.'/delete')}}" method="post" class="form-horizontal">
+                                            @csrf
+
+                                            <div class="col-sm-offset-2">
+                                                <button type="submit" class="btn btn-danger btn-remove-row-1 d-inline"><i class="fa fa-trash"></i></button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 @endsection
-
