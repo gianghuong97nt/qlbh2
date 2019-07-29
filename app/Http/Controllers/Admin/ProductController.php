@@ -1,9 +1,8 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Services\ValidateProduct;
+use App\Http\Requests\RequestProduct;
 use App\Http\Services\ProductService;
 use App\Http\Services\CategoryService;
 
@@ -17,11 +16,10 @@ class ProductController extends Controller
         $this->category = $categoryService;
     }
 
-    public function index(ProductService $service) {
-        $data = [];
-        $data['products'] = $service->getProducts();
+    public function index() {
+        $products = $this->product->getProducts();
 
-        return view('admin.product.index', $data);
+        return view('admin.product.index', compact('products'));
     }
 
     public function create() {
@@ -32,27 +30,21 @@ class ProductController extends Controller
     }
 
     public function edit($id) {
-        $data = [];
-        $data['product'] = $this->product->getProduct($id);
-        $data['categories'] = $this->category->getCategories();
-        $data['id'] = $id;
+        $product = $this->product->getProduct($id);
+        $categories = $this->category->getCategories();
 
-        return view('admin.product.edit', $data);
+        return view('admin.product.edit', compact('product','categories','id'));
     }
     
-    public function store(ValidateProduct $validate, Request $request) {
-        $validate->product($request);
-        $input = $request->except('_token');
-        $this->product->store($input);
+    public function store(RequestProduct $requestProduct) {
+        $this->product->store($requestProduct->input());
         
         return redirect()->route('admin.product');
     }
 
-    public function update($id, Request $request, ValidateProduct $validate) {
-        $validate->product($request);
-        $input = $request->except('_token');
-        $this->product = $this->product->getProduct($id);
-        $this->product->update($input);
+    public function update($id, RequestProduct $requestProduct) {
+        $product = $this->product->getProduct($id);
+        $product->update($requestProduct->input());
 
         return redirect()->route('admin.product');
     }
@@ -63,4 +55,3 @@ class ProductController extends Controller
         return redirect()->route('admin.product');
     }
 }
-
