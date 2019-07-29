@@ -1,11 +1,26 @@
 <?php
 
 return [
-    'tilteDashboard' => 'Trang quản trị viên',
-    'tilteProduct' => 'Danh sách sản phẩm',
-    'tilteAddProduct' => 'Thêm sản phẩm',
-    'tilteEditProduct' => 'Sửa sản phẩm',
-    'tilteCategory' => 'Danh sách danh mục',
-    'tilteOrder' => 'Danh sách đơn hàng',
-    'tiltePost' => 'Danh sách bài viết',
+    'titleDashboard' => 'Trang quản trị viên',
+    'titleProduct' => 'Danh sách sản phẩm',
+    'titleAddProduct' => 'Thêm sản phẩm',
+    'titleEditProduct' => 'Sửa sản phẩm',
+    'titleCategory' => 'Danh sách danh mục',
+    'category' => 'Danh mục',
+    'categoryName' => 'Tên danh mục',
+    'categoryImage' => 'Ảnh',
+    'categoryID' => 'Mã',
+    'categoryDesc' => 'Miêu tả danh mục',
+    'categoryIntro' => 'Giới thiệu danh mục',
+    'titleAddCategory' => 'Thêm mới danh mục',
+    'titleEditCategory' => 'Sửa danh mục',
+    'titleOrder' => 'Danh sách đơn hàng',
+    'titlePost' => 'Danh sách bài viết',
+
+    'changeImage' => 'Thay đổi',
+    'deleteImage' => 'Xóa',
+    'conditionSearch' => 'Điều kiện tìm kiếm',
+
+    'search' => 'Tìm kiếm',
+    'back' => 'Quay lại',
 ];
