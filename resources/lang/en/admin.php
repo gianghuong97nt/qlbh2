@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'administrator' => 'Administrator',
     'titleDashboard' => 'Trang quản trị viên',
     'titleProduct' => 'Danh sách sản phẩm',
     'titleAddProduct' => 'Thêm sản phẩm',
@@ -20,6 +21,15 @@ return [
     'changeImage' => 'Thay đổi',
     'deleteImage' => 'Xóa',
     'conditionSearch' => 'Điều kiện tìm kiếm',
+
+    'profile' => 'Thông tin cá nhân',
+    'name' => 'Tên',
+    'email' => 'Email',
+    'phone_number' => 'SĐT',
+    'avatar' => 'Avatar',
+    'gender' => 'Giới tính',
+    'address' => 'Địa chỉ',
+    'birthday' => 'Ngày sinh',
 
     'search' => 'Tìm kiếm',
     'back' => 'Quay lại',

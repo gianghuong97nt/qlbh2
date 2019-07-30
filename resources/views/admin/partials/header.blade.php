@@ -10,8 +10,7 @@
                     </svg>
                 </label>
             </form>
-        </div><!--//end-search-box-->
-
+        </div>
         <div class="profile_details">
             <ul>
                 <li class="dropdown profile_details_drop">
@@ -19,8 +18,8 @@
                         <div class="profile_img">
                             <span class="prfil-img"><img src="{{ asset('admin_assets/images/2.jpg') }}" alt=""> </span>
                             <div class="user-name">
-                                <p>Name</p>
-                                <span>admin_assetsistrator</span>
+                                <p>{{ trans('admin.administrator')}}</p>
+                                <span>{{ Auth::user()->name }}</span>
                             </div>
                             <i class="fa fa-angle-down lnr"></i>
                             <i class="fa fa-angle-up lnr"></i>
@@ -28,9 +27,13 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu drp-mnu">
-                        {{--<li> <a href="{{route('admin.auth.profile')}}"><i class="fa fa-suitcase"></i>Thông tin cá nhân </a>--}}
-                        {{--<li> <a href="{{route('admin.auth.password')}}"><i class="fa fa-user"></i>Password</a> </li>--}}
-                        {{--<li> <a href="{{route('admin.auth.logout')}}"><i class="fa fa-sign-out"></i> Logout</a> </li>--}}
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </ul>
                 </li>
             </ul>

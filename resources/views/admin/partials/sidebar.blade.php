@@ -64,12 +64,10 @@
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            {{--<li><a href="{{route('admin.auth.profile')}}"><i class="fa fa-angle-right"></i>Thông tin cá nhân </a></li>--}}
-                            {{--<li><a href="{{route('admin.auth.password')}}"><i class="fa fa-angle-right"></i>Đổi mật khẩu </a></li>--}}
+                            <li><a href="{{route('admin.profile')}}"><i class="fa fa-angle-right"></i>Thông tin cá nhân </a></li>
+                            <li><a href="{{route('admin.password')}}"><i class="fa fa-angle-right"></i>Đổi mật khẩu </a></li>
                         </ul>
                     </li>
-
-
                 </ul>
             </div>
         </nav>

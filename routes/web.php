@@ -65,8 +65,13 @@ Route::prefix('admin')->group(function (){
     Route::get('order', 'Admin\OrderController@index')->name('admin.order');
     Route::get('order/{id}/delete','Admin\OrderController@delete')->name('admin.order.delete');
     Route::post('order/{id}/delete','Admin\OrderController@destroy')->name('admin.order.delete');
-
     //Route Anh
     Route::post('uploads', 'Admin\ImageController@uploadImage')->name('upload');
     Route::post('deleteImage', 'Admin\ImageController@deleteImage')->name('deleteImage');
+    //Route thong tin ca nhan
+    Route::get('profile', 'Admin\ProfileController@index')->name('admin.profile');
+    Route::post('profile', 'Admin\ProfileController@update')->name('admin.profile.update');
+    //Route thay doi password
+    Route::get('password', 'Admin\ProfileController@password')->name('admin.password');
+    Route::post('password', 'Admin\ProfileController@update')->name('admin.password.update');
 });
