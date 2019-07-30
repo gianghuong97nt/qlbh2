@@ -12,7 +12,7 @@
 */
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomepageController@index');
 
 Route::prefix('admin')->group(function (){
     //gom nhóm cho các route phần admin
