@@ -1,5 +1,4 @@
 <?php
-
 return [
     'administrator' => 'Administrator',
     'titleDashboard' => 'Trang quản trị viên',
@@ -17,20 +16,24 @@ return [
     'titleEditCategory' => 'Sửa danh mục',
     'titleOrder' => 'Danh sách đơn hàng',
     'titlePost' => 'Danh sách bài viết',
-
     'changeImage' => 'Thay đổi',
     'deleteImage' => 'Xóa',
     'conditionSearch' => 'Điều kiện tìm kiếm',
-
+    'listUser' => 'Danh sách người dùng',
+    'addUser' => 'Thêm mới người dùng',
+    'id' => 'Mã',
     'profile' => 'Thông tin cá nhân',
     'name' => 'Tên',
     'email' => 'Email',
     'phone_number' => 'SĐT',
     'avatar' => 'Avatar',
+    'role' => 'Vai trò',
     'gender' => 'Giới tính',
     'address' => 'Địa chỉ',
     'birthday' => 'Ngày sinh',
-
+    'password' => 'Mật khẩu',
+    'comfirm_password' => 'Xác nhận mật khẩu',
     'search' => 'Tìm kiếm',
     'back' => 'Quay lại',
+    'submit' => 'submit',
 ];

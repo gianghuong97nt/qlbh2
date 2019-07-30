@@ -10,11 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -58,12 +53,21 @@ Route::prefix('admin')->group(function (){
     Route::post('product/{id}','Admin\ProductController@update')->name('admin.product.update');
     Route::post('product/{id}/delete','Admin\ProductController@destroy')->name('admin.product.delete');
     /**
+     * -----------Route admin  user------------
+     * ----------------------------------------
+     * ----------------------------------------
+     */
+    Route::get('user', 'Admin\UserController@index')->name('admin.user');
+    Route::get('user/create','Admin\UserController@create')->name('admin.user.create');
+    //post
+    Route::post('user','Admin\UserController@store')->name('admin.user.store');
+    Route::post('user/{id}/delete','Admin\UserController@destroy')->name('admin.user.delete');
+    /**
      * -----------Route admin  order------------
      * ----------------------------------------
      * ----------------------------------------
      */
     Route::get('order', 'Admin\OrderController@index')->name('admin.order');
-    Route::get('order/{id}/delete','Admin\OrderController@delete')->name('admin.order.delete');
     Route::post('order/{id}/delete','Admin\OrderController@destroy')->name('admin.order.delete');
     //Route Anh
     Route::post('uploads', 'Admin\ImageController@uploadImage')->name('upload');
