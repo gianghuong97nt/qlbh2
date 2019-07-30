@@ -36,4 +36,10 @@ return [
     'search' => 'Tìm kiếm',
     'back' => 'Quay lại',
     'submit' => 'submit',
+    'homepage' => [
+        'welcome' => 'Welcome to',
+        'name' => 'ELECTRONIC',
+        'home' => 'Trang chủ',
+    ],
+    
 ];
