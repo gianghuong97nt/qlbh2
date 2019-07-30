@@ -1,0 +1,30 @@
+.user {
+    background: #4CAF50;
+    color: white;
+    line-height: 2;
+    height: 40px;
+}
+.form-grids {
+    margin-bottom: 40px;
+}
+.action {
+    text-align: center;
+}
+.tbl_id {
+    width: 50px;
+}
+.tbl_name {
+    width: 150px;
+}
+.tbl_email {
+    width: 150px;
+}
+.tbl_role {
+    width: 100px;
+}
+.tbl_gender {
+    width: 70px;
+}
+.tbl_phone_number {
+    width: 100px;
+}

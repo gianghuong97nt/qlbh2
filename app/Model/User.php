@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
@@ -19,4 +18,20 @@ class User extends Model
         'gender',
         'avatar',
     ];
+
+    public function getGenderAttribute($value)
+    {
+        $gender = '';
+
+        if ($value !== null) {
+            $gender = config('config.gender.' . $value);
+        }
+
+        return $gender;
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
