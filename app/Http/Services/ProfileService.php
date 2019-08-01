@@ -14,9 +14,9 @@ class ProfileService {
     public function upload($inputs, $name)
     {
         if (!is_null($inputs)) {
-            $nameFile = str_slug($name) . '-' . rand();
-            $inputs->move('uploads', $nameFile);
+            $nameFile =time() . '_' . $inputs->getClientOriginalName();
 
+            $inputs->storeAs('public/avatars',$nameFile);
             return $nameFile;
         }
     }
@@ -26,9 +26,9 @@ class ProfileService {
         $oldUser = $this->user->findOrFail($id);
         
         if (isset($inputs['avatar'])) {
-            $user = $this->upload($inputs['avatar'], $inputs['name']);
+            $avatar = $this->upload($inputs['avatar'], $inputs['name']);
         } else {
-            $user = $oldUser->image;
+            $avatar = $oldUser->image;
         }
         $oldUser->name = $inputs['name'];
         $oldUser->email = $inputs['email'];
@@ -36,7 +36,7 @@ class ProfileService {
         $oldUser->address = $inputs['address'];
         $oldUser->phone_number = $inputs['phone_number'];
         $oldUser->gender = $inputs['gender'];
-        $oldUser->avatar = $user;
+        $oldUser->avatar = $avatar;
         
         return $oldUser->save();
     }

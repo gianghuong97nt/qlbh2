@@ -48,9 +48,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Images</label>
+                    <label for="focusedinput" class="col-sm-2 control-label ">Images</label>
                     <div class="col-sm-8">
-                        <input type="text" name="images" value="{{ $product->images }}" class="form-control1">
+                        <img src="{{isset($product->images) ?
+                       asset('/storage/uploads/'.$product->images) : asset('uploads/default.png') }}" style="height: 150px; width: 150px">
+                        <input type="file" name="images" value="{{ $product->images }}">
                     </div>
                 </div>
                 <div class="form-group">

@@ -60,7 +60,7 @@
                     <label for="focusedinput" class="col-sm-2 control-label ">{{ trans('admin.avatar')}}</label>
                     <div class="col-sm-8">
                         <img src="{{isset(Auth::user()->avatar) && Auth::user()->avatar != "" ?
-                        asset('uploads/'.Auth::user()->avatar) : asset('uploads/default.png') }}" style="height: 150px; width: 150px">
+                       asset('/storage/avatars/'.Auth::user()->avatar) : asset('uploads/default.png') }}" style="height: 150px; width: 150px">
                         <input type="file" name="avatar" value="{{ Auth::user()->avatar }}">
                     </div>
                 </div>

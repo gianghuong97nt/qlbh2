@@ -8,11 +8,7 @@ class ProductService {
     public function __construct(Product $product) {
         $this->product = $product;
     }
-
-    public function store($input) {
-        return $this->product->create($input);
-    }
-
+    
     public function update($input) {
         return $this->product->update($input);
     }
@@ -27,6 +23,38 @@ class ProductService {
     
     public function getProduct($id) {
         return $this->product->find($id);
+    }
+    public function upload($inputs, $name)
+    {
+        if (!is_null($inputs)) {
+            $nameFile =time() . '_' . $inputs->getClientOriginalName();
+
+            $inputs->storeAs('public/uploads',$nameFile);
+            return $nameFile;
+        }
+    }
+
+    public function store($inputs) {
+        $product = $this->product;
+
+        if (isset($inputs['images'])) {
+            $image = $this->upload($inputs['images'], $inputs['name']);
+        } else {
+            $image = 'default.png';
+        }
+        $product->name = $inputs['name'];
+        $product->cat_id = $inputs['cat_id'];
+        $product->brand = $inputs['brand'];
+        $product->supplier = $inputs['supplier'];
+        $product->quantity = $inputs['quantity'];
+        $product->color = $inputs['color'];
+        $product->size = $inputs['size'];
+        $product->priceCore = $inputs['priceCore'];
+        $product->priceSale = $inputs['priceSale'];
+        $product->note = $inputs['note'];
+        $product->images = $image;
+
+        return $product->save();
     }
 }
 
