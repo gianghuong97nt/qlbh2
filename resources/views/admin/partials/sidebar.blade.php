@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1><a class="navbar-brand"><span class="fa fa-area-chart"></span> Manage<span class="dashboard_text">Quản lý bán hàng</span></a></h1>
+                <h1><a class="navbar-brand" href="{{ route('home') }}"><span class="fa fa-area-chart"></span> Manage<span class="dashboard_text">Quản lý bán hàng</span></a></h1>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="sidebar-menu">

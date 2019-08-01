@@ -41,5 +41,6 @@ return [
         'name' => 'ELECTRONIC',
         'home' => 'Trang chủ',
     ],
+    'topproduct' => 'Top Products',
     
 ];
