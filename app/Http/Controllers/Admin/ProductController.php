@@ -37,7 +37,7 @@ class ProductController extends Controller
     }
     
     public function store(RequestProduct $requestProduct) {
-        $this->product->store($requestProduct->input());
+        $this->product->store($requestProduct->all());
         
         return redirect()->route('admin.product');
     }
