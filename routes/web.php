@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +11,8 @@
 */
 Auth::routes();
 
-Route::get('/', 'HomepageController@index');
+Route::get('/', 'HomepageController@index')->name('home');
+Route::get('/category/{id}', 'HomepageController@load');
 
 Route::prefix('admin')->group(function (){
     //gom nhóm cho các route phần admin

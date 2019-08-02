@@ -444,9 +444,7 @@ h2.resp-accordion {
 	padding: 5px;
 	display: none;
 }
-.resp-tab-content {
-	display: none;
-}
+
 .resp-content-active, .resp-accordion-active {
    display: block;
 }
