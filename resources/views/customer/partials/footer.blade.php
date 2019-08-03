@@ -34,5 +34,5 @@
     </div>
 </div>
 <!-- cart-js -->
-<script src="{{asset('frontend_assets/js/minicart.js')}}"></script>
+{{--<script src="{{asset('frontend_assets/js/minicart.js')}}"></script>--}}
 <script src="{{asset('frontend_assets/js/w3sb1_checkout.js')}}"></script>

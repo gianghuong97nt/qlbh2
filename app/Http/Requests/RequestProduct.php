@@ -22,6 +22,7 @@ class RequestProduct extends FormRequest
             'name' => 'required|max:255',
             'cat_id' => 'required|numeric',
             'priceCore' => 'required|numeric',
+            'priceSale' => 'required|numeric',
         ];
     }
 }
