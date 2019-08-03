@@ -43,8 +43,7 @@ class ProductController extends Controller
     }
 
     public function update($id, RequestProduct $requestProduct) {
-        $product = $this->product->getProduct($id);
-        $product->update($requestProduct->input());
+        $this->product->update($requestProduct->all(),$id);
 
         return redirect()->route('admin.product');
     }

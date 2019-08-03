@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('customer_country');
             $table->string('total_price');
             $table->string('status');
+            $table->timestamps();
         });
     }
 

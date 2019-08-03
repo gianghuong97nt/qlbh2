@@ -10,7 +10,7 @@ class CategoryService {
     }
 
     public function getALlCategory(){
-        return   $this->category->paginate(10);
+        return   $this->category->all();
     }
 
     public function getCategories() {
@@ -20,16 +20,50 @@ class CategoryService {
     public function getCategory($id) {
         return $this->category->find($id);
     }
+    
+    public function upload($inputs, $name)
+    {
+        if (!is_null($inputs)) {
+            $nameFile =time() . '_' . $inputs->getClientOriginalName();
+            $inputs->storeAs('public/uploads',$nameFile);
 
-    public function store($input) {
-        return $this->category->create($input);
+            return $nameFile;
+        }
     }
 
-    public function update($input) {
-        return $this->category->update($input);
+    public function store($inputs) {
+        $category = $this->category;
+
+        if (isset($inputs['images'])) {
+            $image = $this->upload($inputs['images'], $inputs['name']);
+        } else {
+            $image = 'default.png';
+        }
+        $category->name = $inputs['name'];
+        $category->desc = $inputs['desc'];
+        $category->intro = $inputs['intro'];
+        $category->images = $image;
+
+        return $category->save();
     }
 
-    public function delete() {
-        return $this->category->delete();
+    public function update($inputs,$id) {
+        $category = $this->category->findOrFail($id);
+
+        if (isset($inputs['images'])) {
+            $image = $this->upload($inputs['images'], $inputs['name']);
+        } else {
+            $image = 'default.png';
+        }
+        $category->name = $inputs['name'];
+        $category->desc = $inputs['desc'];
+        $category->intro = $inputs['intro'];
+        $category->images = $image;
+
+        return $category->save();
+    }
+
+    public function delete($id) {
+        return $this->category->where('id',$id)->delete();
     }
 }

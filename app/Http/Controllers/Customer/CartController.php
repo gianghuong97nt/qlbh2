@@ -24,12 +24,7 @@ class CartController extends Controller
         }
         $total_payment = Cart::getTotal();
         $total_qtt_cart = Cart::getTotalQuantity();
-
-        return view('customer.cart.index',
-            compact('cart_products', 'products','total_payment','total_qtt_cart'));
-        $total_payment = Cart::getTotal();
-        $total_qtt_cart = Cart::getTotalQuantity();
-
+        
         return view('customer.cart.index',
             compact('cart_products', 'products', 'total_payment', 'total_qtt_cart'));
     }
