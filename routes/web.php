@@ -83,7 +83,10 @@ Route::prefix('admin')->group(function (){
      * ----------------------------------------
      */
     Route::get('order', 'Admin\OrderController@index')->name('admin.order');
-    Route::post('order/{id}/delete','Admin\OrderController@destroy')->name('admin.order.delete');
+    Route::get('order/{id}/edit','Admin\OrderController@edit')->name('admin.order.edit');
+    //post
+    Route::post('order/{id}','Admin\OrderController@update');
+    Route::post('order/{id}/delete','Admin\OrderController@destroy');
     //Route Anh
     Route::post('uploads', 'Admin\ImageController@uploadImage')->name('upload');
     Route::post('deleteImage', 'Admin\ImageController@deleteImage')->name('deleteImage');

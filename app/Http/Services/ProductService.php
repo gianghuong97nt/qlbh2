@@ -37,7 +37,7 @@ class ProductService {
     }
     
     public function getProducts() {
-        return $this->product->all();
+        return $this->product->paginate(config('config.paginate'));
     }
     
     public function getProduct($id) {
