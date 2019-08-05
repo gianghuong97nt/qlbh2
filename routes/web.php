@@ -15,13 +15,19 @@ Route::get('/', 'HomepageController@index')->name('home');
 Route::get('/category/{id}', 'HomepageController@load');
 
 /**
- * Frontend route cart giỏ hàng
+ * Customer route cart giỏ hàng
  */
 Route::get('cart', 'Customer\CartController@index');
 Route::post('cart/add', 'Customer\CartController@add');
 Route::post('cart/update', 'Customer\CartController@update');
 Route::post('cart/remove', 'Customer\CartController@remove');
 Route::post('cart/clear', 'Customer\CartController@clear');
+/**
+ * Customer route payment thanh toán
+ */
+Route::get('payment', 'Customer\PaymentController@index');
+Route::post('payment', 'Customer\PaymentController@order');
+Route::get('payment/after', 'Customer\PaymentController@afterOrder');
 
 Route::prefix('admin')->group(function (){
     //gom nhóm cho các route phần admin

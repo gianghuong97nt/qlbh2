@@ -9,8 +9,27 @@ class ProductService {
         $this->product = $product;
     }
     
-    public function update($input) {
-        return $this->product->update($input);
+    public function update($inputs, $id) {
+        $product = $this->product->findOrFail($id);
+
+        if (isset($inputs['images'])) {
+            $image = $this->upload($inputs['images'], $inputs['name']);
+        } else {
+            $image = 'default.png';
+        }
+        $product->name = $inputs['name'];
+        $product->cat_id = $inputs['cat_id'];
+        $product->brand = $inputs['brand'];
+        $product->supplier = $inputs['supplier'];
+        $product->quantity = $inputs['quantity'];
+        $product->color = $inputs['color'];
+        $product->size = $inputs['size'];
+        $product->priceCore = $inputs['priceCore'];
+        $product->priceSale = $inputs['priceSale'];
+        $product->note = $inputs['note'];
+        $product->images = $image;
+        
+        return $product->save();
     }
 
     public function delete() {
@@ -28,8 +47,8 @@ class ProductService {
     {
         if (!is_null($inputs)) {
             $nameFile =time() . '_' . $inputs->getClientOriginalName();
-
             $inputs->storeAs('public/uploads',$nameFile);
+            
             return $nameFile;
         }
     }
@@ -57,4 +76,3 @@ class ProductService {
         return $product->save();
     }
 }
-

@@ -2,8 +2,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Services\CategoryService;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Services\CategoryService;
 
 class CategoryController extends Controller
 {
@@ -30,20 +30,19 @@ class CategoryController extends Controller
     }
 
     public function store(CategoryRequest $categoryRequest) {
-        $this->category->store($categoryRequest->input());
+        $this->category->store($categoryRequest->all());
 
         return redirect('/admin/category');
     }
 
     public function update($id, CategoryRequest $categoryRequest) {
-        $category = $this->category->getCategory($id);
-        $category->update($categoryRequest->input());
+        $this->category->update($categoryRequest->all(),$id);
 
         return redirect('/admin/category');
     }
 
     public function destroy($id) {
-        $this->category->getCategory($id)->delete();
+        $this->category->delete($id);
 
         return redirect('/admin/category');
     }

@@ -63,7 +63,7 @@
                 </div>
                 <div class="checkout-left">
                     <div class="checkout-left-basket">
-                        <h4><a href="{{ url('shop/payment') }}" style="color: #FFF">Thanh toán</a></h4>
+                        <h4><a href="{{ url('/payment') }}" style="color: #FFF">Thanh toán</a></h4>
                         <ul>
                             @foreach($cart_products as $product)
                                 <li>{{ $product->name }} <i>-</i> <span>VND {{ $product->price*$product->quantity }} </span></li>

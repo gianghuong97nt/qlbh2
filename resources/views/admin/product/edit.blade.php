@@ -16,7 +16,7 @@
                     </ul>
                 </div>
             @endif
-            <form name="product" action="{{url('admin/product/'.$id)}}" method="post" class="form-horizontal">
+            <form name="product" action="{{url('admin/product/'.$id)}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên sản phẩm</label>
@@ -52,7 +52,7 @@
                     <div class="col-sm-8">
                         <img src="{{isset($product->images) ?
                        asset('/storage/uploads/'.$product->images) : asset('uploads/default.png') }}" style="height: 150px; width: 150px">
-                        <input type="file" name="images" value="{{ $product->images }}">
+                        <input type="file" name="images">
                     </div>
                 </div>
                 <div class="form-group">
