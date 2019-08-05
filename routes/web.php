@@ -14,6 +14,15 @@ Auth::routes();
 Route::get('/', 'HomepageController@index')->name('home');
 Route::get('/category/{id}', 'HomepageController@load');
 
+/**
+ * Frontend route cart giỏ hàng
+ */
+Route::get('cart', 'Customer\CartController@index');
+Route::post('cart/add', 'Customer\CartController@add');
+Route::post('cart/update', 'Customer\CartController@update');
+Route::post('cart/remove', 'Customer\CartController@remove');
+Route::post('cart/clear', 'Customer\CartController@clear');
+
 Route::prefix('admin')->group(function (){
     //gom nhóm cho các route phần admin
     //URL site/admin/

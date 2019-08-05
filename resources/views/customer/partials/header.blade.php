@@ -52,12 +52,61 @@
         </div>
         <div class="col-md-1 cart-wthree">
             <div class="cart">
-                <form action="#" method="post" class="last">
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="display" value="1" />
-                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                <form action="{{ url('/cart') }}" method="get" class="last">
+                    <button class="w3view-cart" type="submit" name="submit" value="">
+                        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                        <span id="num-cart">{{ \Cart::getTotalQuantity() }}</span>
+                    </button>
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var add_cart_url = '<?php echo url('cart/add') ?>';
+        $('#result').on('click', '.pw3ls-cart,.w3ls-cart',function (e) {
+            e.preventDefault();
+
+            var dataPost = $(this).closest('form').serializeArray();
+
+            // post đến controller
+            $.ajax({
+                url: add_cart_url,
+                dataType:'json',
+                type:'POST',
+                data: dataPost,
+                success: function(result){
+                    // bung popup
+                    $('#myModal').modal('show');
+                }
+            });
+
+        });
+    });
+</script>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Bạn đã thêm sản phẩm vào giỏ hàng thành công</h4>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center">
+                    <a href="{{ url('/cart') }}" class="btn btn-success">Thanh toán</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Tiếp tục mua sắm</button>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">đóng</button>
+            </div>
+        </div>
+
     </div>
 </div>
