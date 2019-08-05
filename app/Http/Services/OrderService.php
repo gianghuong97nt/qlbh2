@@ -6,7 +6,6 @@ use App\Model\OrderProduct;
 use Cart;
 use Illuminate\Support\Facades\DB;
 
-
 class OrderService {
     protected $order;
     protected $orderProduct;
@@ -15,8 +14,16 @@ class OrderService {
         $this->order = $order;
         $this->orderProduct = $orderProduct;
     }
+    
+    public function getAllOrder() {
+        return $this->order->paginate(config('config.paginate'));
+    }
+    
+    public function getOrder($id) {
+        return $this->order->find($id);
+    }
 
-    public function save($input){
+    public function save($input) {
         DB::beginTransaction();
 
         try {
@@ -50,5 +57,13 @@ class OrderService {
 
             throw new Exception($e->getMessage());
         }
+    }
+    
+    public function update($input, $id) {
+        return $this->order->where('id', $id)->update(['status' => $input['status']]);
+    }
+
+    public function delete($id) {
+        return $this->order->where('id', $id)->where('status', 1)->delete();
     }
 }

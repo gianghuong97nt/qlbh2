@@ -1,0 +1,88 @@
+.label-info {
+    background: #629aa9 !important;
+    color: white;
+    width: 100%;
+    text-align: left;
+    line-height: 1;
+    border: 1px solid #629aa9 !important;
+    margin-left: -15px;
+}
+.bs-example {
+    margin-top: -18px;
+}
+.d-inline {
+    display: inline-block;
+    margin-bottom: -100px;
+}
+.form-body {
+    padding: 2em 2em;
+}
+.row {
+    margin-bottom: 5px;
+}
+.form-control {
+    border-radius: 5px;
+    font-size: 16px;
+}
+.condition {
+    font-size: 20px;
+    padding-left: 13px;
+    border-bottom: 1px ;
+    background: #4CAF50;
+    color: white;
+    line-height: 2;
+    height: 40px;
+}
+.form-grids {
+    margin-bottom: 40px;
+}
+.btn-btn {
+    float: right !important;
+}
+.btn-2 {
+    width: 48%;
+}
+.condition span {
+    float: right;
+    margin-right: 10px;
+}
+.condition p {
+    cursor: pointer;
+}
+.tbl_order {
+    min-width: 715px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+.order {
+    height: 40px;
+}
+.order th {
+    line-height: 2;
+    font-weight: 400;
+}
+.tbl_id {
+    width: 50px;
+    text-align: right;
+}
+.tbl_name {
+    width: 150px;
+    text-align: center;
+}
+.tbl_image {
+    width:200px;
+}
+.tbl_desc {
+    width: 200px;
+}
+.tbl_intro{
+    width: 300px;
+}
+.tbl_action {
+    width: 150px;
+    text-align: center;
+    max-width: 150px;
+}

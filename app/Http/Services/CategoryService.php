@@ -10,13 +10,9 @@ class CategoryService {
     }
 
     public function getALlCategory(){
-        return   $this->category->all();
+        return   $this->category->paginate(config('config.paginate'));
     }
-
-    public function getCategories() {
-        return $this->category->all();
-    }
-
+    
     public function getCategory($id) {
         return $this->category->find($id);
     }

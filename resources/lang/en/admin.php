@@ -42,5 +42,20 @@ return [
         'home' => 'Trang chủ',
     ],
     'topproduct' => 'Top Products',
-    
+    'order' => [
+        'edit' => 'Sửa đơn hàng',
+        'index' => 'Danh sách đơn hàng',
+        'id' => 'ID',
+        'email' => 'Email',
+        'name' => 'Tên khách hàng',
+        'phonenumber' => 'SĐT',
+        'address' => 'Địa chỉ',
+        'total_price' => 'Tổng đơn hàng',
+        'note' => 'Note',
+        'city' => 'Thành phố',
+        'country' => 'Nước',
+        'status' => 'Trạng thái',
+        'unfinished' => 'Chưa giao hàng',
+        'delivered' => 'Đã giao hàng',
+    ],
 ];
