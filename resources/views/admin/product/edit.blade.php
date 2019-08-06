@@ -52,7 +52,7 @@
                     <div class="col-sm-8">
                         <img src="{{isset($product->images) ?
                        asset('/storage/uploads/'.$product->images) : asset('uploads/default.png') }}" style="height: 150px; width: 150px">
-                        <input type="file" name="images">
+                        <input type="file" name="images" value="{{ $product->images }}">
                     </div>
                 </div>
                 <div class="form-group">

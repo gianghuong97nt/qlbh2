@@ -62,6 +62,7 @@
                         <img src="{{isset(Auth::user()->avatar) && Auth::user()->avatar != "" ?
                        asset('/storage/avatars/'.Auth::user()->avatar) : asset('uploads/default.png') }}" style="height: 150px; width: 150px">
                         <input type="file" name="avatar" value="{{ Auth::user()->avatar }}">
+                        <input type="text" name="image_old" value="{{ Auth::user()->avatar }}" hidden>
                     </div>
                 </div>
                 <div class="col-sm-offset-2">

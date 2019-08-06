@@ -27,7 +27,7 @@ class ProfileService {
         if (isset($inputs['avatar'])) {
             $avatar = $this->upload($inputs['avatar'], $inputs['name']);
         } else {
-            $avatar = $oldUser->image;
+            $avatar = $inputs['image_old'];
         }
         $oldUser->name = $inputs['name'];
         $oldUser->email = $inputs['email'];

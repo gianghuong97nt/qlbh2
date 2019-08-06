@@ -67,6 +67,7 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::post('product','Admin\ProductController@store')->name('admin.product.store');
     Route::post('product/{id}','Admin\ProductController@update')->name('admin.product.update');
     Route::post('product/{id}/delete','Admin\ProductController@destroy')->name('admin.product.delete');
+    Route::get('product/search','Admin\ProductController@search');
     /**
      * -----------Route admin  user------------
      * ----------------------------------------
