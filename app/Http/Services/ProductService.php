@@ -10,26 +10,12 @@ class ProductService {
     }
     
     public function update($inputs, $id) {
-        $product = $this->product->findOrFail($id);
-
         if (isset($inputs['images'])) {
             $image = $this->upload($inputs['images'], $inputs['name']);
-        } else {
-            $image = 'default.png';
+            $inputs['images'] = $image;
         }
-        $product->name = $inputs['name'];
-        $product->cat_id = $inputs['cat_id'];
-        $product->brand = $inputs['brand'];
-        $product->supplier = $inputs['supplier'];
-        $product->quantity = $inputs['quantity'];
-        $product->color = $inputs['color'];
-        $product->size = $inputs['size'];
-        $product->priceCore = $inputs['priceCore'];
-        $product->priceSale = $inputs['priceSale'];
-        $product->note = $inputs['note'];
-        $product->images = $image;
-        
-        return $product->save();
+
+        return $this->product->where('id', $id)->update($inputs);
     }
 
     public function delete() {
@@ -54,25 +40,22 @@ class ProductService {
     }
 
     public function store($inputs) {
-        $product = $this->product;
-
         if (isset($inputs['images'])) {
             $image = $this->upload($inputs['images'], $inputs['name']);
-        } else {
-            $image = 'default.png';
+            $inputs['images'] = $image;
         }
-        $product->name = $inputs['name'];
-        $product->cat_id = $inputs['cat_id'];
-        $product->brand = $inputs['brand'];
-        $product->supplier = $inputs['supplier'];
-        $product->quantity = $inputs['quantity'];
-        $product->color = $inputs['color'];
-        $product->size = $inputs['size'];
-        $product->priceCore = $inputs['priceCore'];
-        $product->priceSale = $inputs['priceSale'];
-        $product->note = $inputs['note'];
-        $product->images = $image;
 
-        return $product->save();
+        return $this->product->create($inputs);
+    }
+
+    public function search($inputs) {
+        $query = $this->product;
+        foreach($inputs as $key => $value){
+            if(!is_null($value)) {
+                $query = $query->where($key, 'like', '%'.$value.'%');
+            }
+        }
+
+        return $query->paginate(config('config.paginate'));
     }
 }

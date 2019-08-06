@@ -57,30 +57,6 @@
     width: 48%;
 
 }
-
-#product_id {
-    width: 30%;
-}
-#product_name{
-    width: 70%;
-}
-#category {
-    width: 50%;
-}
-#supplier {
-    width: 70%;
-}
-#brand {
-    width: 50%;
-}
-
-#color {
-    width: 50%;
-}
-#size {
-    width: 50%;
-}
-
 .condition span {
     float: right;
     margin-right: 10px;

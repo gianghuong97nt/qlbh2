@@ -47,11 +47,11 @@ th {
 }
 .tbl_price_core {
     width: 90px;
-    text-align: right;
+    text-align: center;
 }
 .tbl_price_sale {
     width: 90px;
-    text-align: right;
+    text-align: center;
 }
 .tbl_note {
     width: 100px;
