@@ -2,7 +2,6 @@
 namespace App\Http\Services;
 
 use App\Model\User;
-use Illuminate\Support\Facades\Auth;
 
 class ProfileService {
     protected $user;
@@ -22,7 +21,7 @@ class ProfileService {
     }
     
     public function update($inputs) {
-        $id = Auth::user()->id;
+        $id = auth()->id();
         $oldUser = $this->user->findOrFail($id);
         
         if (isset($inputs['avatar'])) {
@@ -39,5 +38,20 @@ class ProfileService {
         $oldUser->avatar = $avatar;
         
         return $oldUser->save();
+    }
+    
+    public function getPassword() {
+        $id = auth()->id();
+        $user = $this->user->where('id', $id)->first();
+        
+        return $user->password;
+    }
+    
+    public function savePassword($inputs) {
+        $id = auth()->id();
+        $user = $this->user->findOrFail($id);
+        $user->password = $inputs['new'];
+        
+        return $user->save();
     }
 }

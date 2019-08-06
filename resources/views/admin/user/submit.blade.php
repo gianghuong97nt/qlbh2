@@ -1,10 +1,10 @@
 @extends('admin.layouts.glance')
 
 @section('title')
-    {{ trans('admin.addUser') }}
+    {{ trans('admin.user.add') }}
 @endsection
 @section('content')
-    <h1>{{ trans('admin.addUser') }}</h1>
+    <h1>{{ trans('admin.user.add') }}</h1>
     <div class="row">
         <div class="form-three widget-shadow">
             @if ( $errors->any() )
@@ -19,36 +19,36 @@
             <form name="user" action="{{ url('admin/user') }}" method="post" class="form-horizontal">
                 @csrf
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.name') }}</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.user.name') }}</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" value="{{ old('name') }}" class="form-control1" placeholder="Nhập tên sản phẩm">
+                        <input type="text" name="name" value="{{ old('name') }}" class="form-control1" placeholder="{{ trans('admin.user.name') }}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.email') }}</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.user.email') }}</label>
                     <div class="col-sm-8">
-                        <input type="email" name="email" value="{{ old('email') }}" class="form-control1" placeholder="Nhập tên sản phẩm">
+                        <input type="email" name="email" value="{{ old('email') }}" class="form-control1" placeholder="{{ trans('admin.user.email') }}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.role') }}</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.user.role') }}</label>
                     <div class="col-sm-8">
                         <select name="role" style="height: 40px">
                             <option value="0"></option>
-                            <option value="1">{{ trans('admin.administrator') }}</option>
+                            <option value="1">{{ trans('admin.user.administrator') }}</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.password') }}</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.user.password') }}</label>
                     <div class="col-sm-8">
-                        <input type="password" name="password" value="{{ old('password') }}" class="form-control1" placeholder="{{ trans('admin.password') }}">
+                        <input type="password" name="password" value="{{ old('password') }}" class="form-control1" placeholder="{{ trans('admin.user.password') }}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.comfirm_password') }}</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">{{ trans('admin.user.comfirm_password') }}</label>
                     <div class="col-sm-8">
-                        <input type="password" name="comfirm_password" value="{{ old('comfirm_password') }}" class="form-control1" placeholder="{{ trans('admin.comfirm_password') }}">
+                        <input type="password" name="comfirm_password" value="{{ old('comfirm_password') }}" class="form-control1" placeholder="{{ trans('admin.user.comfirm_password') }}">
                     </div>
                 </div>
                 <div class="col-sm-offset-2">

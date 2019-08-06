@@ -1,6 +1,6 @@
 @extends('admin.layouts.glance')
 @section('title')
-    {{ trans('admin.listUser') }}
+    {{ trans('admin.user.list') }}
 @endsection
 @section('style')
     <link href="{{asset('admin_assets/css/user.css') }}" rel='stylesheet' type='text/css'/>
@@ -9,7 +9,7 @@
     <div class="forms tables">
         <div class="row">
             <div class="d-inline">
-                <h2 class="title1">{{ trans('admin.listUser') }}</h2>
+                <h2 class="title1">{{ trans('admin.user.list') }}</h2>
             </div>
         </div>
         <div class="panel-body bs-example widget-shadow" >
@@ -18,13 +18,13 @@
                     <table class="table table-bordered tbl_user">
                         <thead>
                         <tr class="user">
-                            <th class="tbl_id">{{ trans('admin.id') }} </th>
-                            <th class="tbl_name">{{ trans('admin.name') }}</th>
-                            <th class="tbl_email">{{ trans('admin.email') }}</th>
-                            <th class="tbl_role">{{ trans('admin.role') }}</th>
-                            <th class="tbl_address">{{ trans('admin.address') }}</th>
-                            <th class="tbl_phone_number">{{ trans('admin.phone_number') }}</th>
-                            <th class="tbl_gender">{{ trans('admin.gender') }}</th>
+                            <th class="tbl_id">{{ trans('admin.user.id') }} </th>
+                            <th class="tbl_name">{{ trans('admin.user.name') }}</th>
+                            <th class="tbl_email">{{ trans('admin.user.email') }}</th>
+                            <th class="tbl_role">{{ trans('admin.user.role') }}</th>
+                            <th class="tbl_address">{{ trans('admin.user.address') }}</th>
+                            <th class="tbl_phone_number">{{ trans('admin.user.phone_number') }}</th>
+                            <th class="tbl_gender">{{ trans('admin.user.gender') }}</th>
                             <th class="action tbl_action"><a class="btn btn-primary" id="btn-add-row-1" href="{{ url('admin/user/create') }}"><i class="fa fa-plus" aria-hidden="true"></i></a></th>
                         </tr>
                         </thead>
