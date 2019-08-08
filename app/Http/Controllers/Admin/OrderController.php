@@ -36,4 +36,11 @@ class OrderController extends Controller
 
         return redirect()->route('admin.order');
     }
+
+    public function search(Request $request) {
+        $inputs = $request->all();
+        $orders = $this->order->search($inputs);
+        
+        return view('admin.order.result', compact('orders'));
+    }
 }

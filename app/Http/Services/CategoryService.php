@@ -17,7 +17,7 @@ class CategoryService {
         return $this->category->find($id);
     }
     
-    public function upload($inputs, $name)
+    public function upload($inputs)
     {
         if (!is_null($inputs)) {
             $nameFile =time() . '_' . $inputs->getClientOriginalName();
@@ -28,38 +28,35 @@ class CategoryService {
     }
 
     public function store($inputs) {
-        $category = $this->category;
-
         if (isset($inputs['images'])) {
-            $image = $this->upload($inputs['images'], $inputs['name']);
-        } else {
-            $image = 'default.png';
+            $image = $this->upload($inputs['images']);
+            $inputs['images'] = $image;
         }
-        $category->name = $inputs['name'];
-        $category->desc = $inputs['desc'];
-        $category->intro = $inputs['intro'];
-        $category->images = $image;
 
-        return $category->save();
+        return $this->category->create($inputs);
     }
 
     public function update($inputs,$id) {
-        $category = $this->category->findOrFail($id);
-
         if (isset($inputs['images'])) {
-            $image = $this->upload($inputs['images'], $inputs['name']);
-        } else {
-            $image = 'default.png';
+            $image = $this->upload($inputs['images']);
+            $inputs['images'] = $image;
         }
-        $category->name = $inputs['name'];
-        $category->desc = $inputs['desc'];
-        $category->intro = $inputs['intro'];
-        $category->images = $image;
 
-        return $category->save();
+        return $this->category->where('id', $id)->firstOrFail()->update($inputs);
     }
 
     public function delete($id) {
         return $this->category->where('id',$id)->delete();
+    }
+    
+    public function search ($inputs) {
+        $query = $this->category;
+        foreach($inputs as $key => $value) {
+            if(!is_null($value)) {
+                $query = $query->where($key, 'like', '%'.$value.'%');
+            }
+        }
+
+        return $query->paginate(config('config.paginate'));
     }
 }

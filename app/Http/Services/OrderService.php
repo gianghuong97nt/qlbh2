@@ -66,4 +66,15 @@ class OrderService {
     public function delete($id) {
         return $this->order->where('id', $id)->where('status', 1)->delete();
     }
+    
+    public function search($inputs) {
+        $query = $this->order;
+        foreach($inputs as $key => $value) {
+            if(!is_null($value)) {
+                $query = $query->where($key, 'like', '%'.$value.'%');
+            }
+        }
+
+        return $query->paginate(config('config.paginate'));
+    }
 }
