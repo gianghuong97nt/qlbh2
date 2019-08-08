@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Services\CategoryService;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -45,5 +46,12 @@ class CategoryController extends Controller
         $this->category->delete($id);
 
         return redirect('/admin/category');
+    }
+    
+    public function search(Request $request) {
+        $input = $request->all();
+        $categories = $this->category->search($input);
+
+        return view('admin.category.result', compact('categories'));
     }
 }

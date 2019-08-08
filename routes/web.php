@@ -51,6 +51,7 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('category','Admin\CategoryController@index')->name('admin.category');
     Route::get('category/create','Admin\CategoryController@create')->name('admin.category.create');
     Route::get('category/{id}/edit','Admin\CategoryController@edit')->name('admin.category.edit');
+    Route::get('category/search','Admin\CategoryController@search');
 //    post
     Route::post('category','Admin\CategoryController@store')->name('admin.category.store');
     Route::post('category/{id}','Admin\CategoryController@update')->name('admin.category.update');
@@ -88,9 +89,8 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     //post
     Route::post('order/{id}','Admin\OrderController@update');
     Route::post('order/{id}/delete','Admin\OrderController@destroy');
-    //Route Anh
-    Route::post('uploads', 'Admin\ImageController@uploadImage')->name('upload');
-    Route::post('deleteImage', 'Admin\ImageController@deleteImage')->name('deleteImage');
+    Route::get('order/search','Admin\OrderController@search');
+    
     //Route thong tin ca nhan
     Route::get('profile', 'Admin\ProfileController@index')->name('admin.profile');
     Route::post('profile', 'Admin\ProfileController@update')->name('admin.profile.update');

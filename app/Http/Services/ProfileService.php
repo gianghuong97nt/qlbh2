@@ -10,34 +10,24 @@ class ProfileService {
         $this->user = $user;
     }
 
-    public function upload($inputs, $name)
+    public function upload($inputs)
     {
         if (!is_null($inputs)) {
             $nameFile =time() . '_' . $inputs->getClientOriginalName();
-
             $inputs->storeAs('public/avatars',$nameFile);
+            
             return $nameFile;
         }
     }
     
     public function update($inputs) {
         $id = auth()->id();
-        $oldUser = $this->user->findOrFail($id);
-        
         if (isset($inputs['avatar'])) {
-            $avatar = $this->upload($inputs['avatar'], $inputs['name']);
-        } else {
-            $avatar = $inputs['image_old'];
+            $image = $this->upload($inputs['avatar']);
+            $inputs['avatar'] = $image;
         }
-        $oldUser->name = $inputs['name'];
-        $oldUser->email = $inputs['email'];
-        $oldUser->birthday = $inputs['birthday'];
-        $oldUser->address = $inputs['address'];
-        $oldUser->phone_number = $inputs['phone_number'];
-        $oldUser->gender = $inputs['gender'];
-        $oldUser->avatar = $avatar;
-        
-        return $oldUser->save();
+
+        return $this->user->where('id', $id)->firstOrFail()->update($inputs);
     }
     
     public function getPassword() {

@@ -15,7 +15,7 @@ class ProductService {
             $inputs['images'] = $image;
         }
 
-        return $this->product->where('id', $id)->update($inputs);
+        return $this->product->where('id', $id)->firstOrFail()->update($inputs);
     }
 
     public function delete() {

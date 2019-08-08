@@ -17,7 +17,7 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 btn-btn d-inline">
                 <button type="button" class="btn btn-success btn-2" id="btn-search">Search</button>
-                <a href="{{'admin/'}}"><button type="button" class="btn btn-success btn-2 ">Back</button></a>
+                <a href="{{'/admin'}}"><button type="button" class="btn btn-success btn-2 ">Back</button></a>
             </div>
         </div>
         <div class="panel-body bs-example widget-shadow" >

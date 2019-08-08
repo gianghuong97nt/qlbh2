@@ -39,13 +39,13 @@ class ProductController extends Controller
     }
     
     public function store(RequestProduct $requestProduct) {
-        $this->product->store($requestProduct->except('_token'));
+        $this->product->store($requestProduct->all());
         
         return redirect()->route('admin.product');
     }
 
     public function update($id, RequestProduct $requestProduct) {
-        $this->product->update($requestProduct->except('_token'),$id);
+        $this->product->update($requestProduct->all(), $id);
 
         return redirect()->route('admin.product');
     }
