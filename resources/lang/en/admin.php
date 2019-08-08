@@ -1,10 +1,10 @@
 <?php
 return [
     'administrator' => 'Administrator',
-    'titleDashboard' => 'Trang quản trị viên',
+    'tilteDashboard' => 'Trang quản trị viên',
     'titleProduct' => 'Danh sách sản phẩm',
-    'titleAddProduct' => 'Thêm sản phẩm',
-    'titleEditProduct' => 'Sửa sản phẩm',
+    'tilteAddProduct' => 'Thêm sản phẩm',
+    'tilteEditProduct' => 'Sửa sản phẩm',
     'category' => [
         'title' => 'Danh sách danh mục',
         'category' => 'Danh mục',
@@ -62,8 +62,8 @@ return [
         'comfirm_password' => 'Xác nhận mật khẩu',
     ],
     'save' => 'Save',
-    'search' => 'Tìm kiếm',
-    'back' => 'Quay lại',
+    'search' => 'Search',
+    'back' => 'Back',
     'submit' => 'submit',
     'homepage' => [
         'welcome' => 'Welcome to',
@@ -94,6 +94,7 @@ return [
         'new' => 'Mật khẩu mới',
         'confirm' => 'Xác nhận mật khẩu',
         'success' => 'Thay đổi mật khẩu thành công',
-        'fail' => 'Mật khẩu bạn vừa nhập không khớp với mật khẩu hiện tại'
+        'fail' => 'Mật khẩu bạn vừa nhập không khớp với mật khẩu hiện tại',
+        'link' => 'Nhấn vào link bên dưới để đặt lại mật khẩu',
     ]
 ];

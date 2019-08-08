@@ -5,7 +5,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Services\ProfileService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller
 {
@@ -45,5 +48,33 @@ class ProfileController extends Controller
 
             return redirect()->back()->with('error', $result);
         }
+    }
+
+    public function reset(Request $request) {
+        $data = [];
+        $title = 'Test';
+        $email =    $request->email;
+        $data['reset_password_token']  = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            ceil(10/strlen($x)) )),1,10);
+        $this->user->resetPasswordToken($email, $data['reset_password_token'] );
+        if($email) {
+            Mail ::send('auth.passwords.subject_mail', $data, function ($message) use ($title, $email) {
+                $message->to($email)
+                    ->subject($title);
+            });
+        }
+
+        return redirect()->back();
+    }
+    
+    public function resetPassword() {
+        return view('auth.passwords.reset');
+    }
+    
+    public function passwordUpdate(Request $request) {
+        $inputs = $request->all();
+        $this->user->passwordUpdate($inputs);
+        
+        return redirect('login');
     }
 }
