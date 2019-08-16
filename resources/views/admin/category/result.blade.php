@@ -13,10 +13,11 @@
         <tbody>
         @if( isset($categories) )
             @foreach( $categories as $category )
-                <tr>
+                <tr style="height: 120px">
                     <td>{{ isset($category->id) ? $category->id : '' }}</td>
                     <td>{{ isset($category->name) ? $category->name : '' }}</td>
-                    <td>{{ isset($category->images) ? $category->images : '' }}</td>
+                    <td><img src="{{ asset('/storage/uploads/'.$category->images) }}"
+                             style="max-width: 150px; max-height: 150px" alt="{{ $category->images }}"></td>
                     <td>{{ isset($category->desc) ? $category->desc: '' }}</td>
                     <td>{{ isset($category->intro) ? $category->intro : '' }}</td>
                     <td>

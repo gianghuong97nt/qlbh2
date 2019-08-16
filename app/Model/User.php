@@ -17,6 +17,8 @@ class User extends Model
         'phone_number',
         'gender',
         'avatar',
+        'reset_password_token',
+        'expired_token',
     ];
 
     public function getGenderAttribute($value)

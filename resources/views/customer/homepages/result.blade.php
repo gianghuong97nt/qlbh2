@@ -1,7 +1,7 @@
 @if ( isset($products))
     @foreach($products as $product)
         <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
-            <a href="single.html">
+            <a href="#">
                 <div class="product-img">
                     <img src="{{asset('/storage/uploads/'.$product['images'])}}" alt="" style="width: 235px; height: 235px"/>
                     <div class="p-mask">

@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="container">
         <div class="col-md-3 footer-grids fgd1">
-            <a href="index.html"><img src="{{asset('frontend_assets/images/logo2.png')}}"/><h3>ELECTRONIC</h3></a>
+            <a href="#"><img src="{{asset('frontend_assets/images/logo2.png')}}"/><h3>ELECTRONIC</h3></a>
             <ul>
                 <li>1234k Avenue, 4th block,</li>
                 <li>New York City.</li>
@@ -15,19 +15,19 @@
         <div class="col-md-3 footer-grids fgd2">
             <h4>Information</h4>
             <ul>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="icons.html">Web Icons</a></li>
-                <li><a href="typography.html">Typography</a></li>
-                <li><a href="faq.html">FAQ's</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Web Icons</a></li>
+                <li><a href="#">Typography</a></li>
+                <li><a href="#">FAQ's</a></li>
             </ul>
         </div>
         <div class="col-md-3 footer-grids fgd4">
             <h4>My Account</h4>
             <ul>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="recommended.html">Recommended </a></li>
-                <li><a href="payment.html">Payments</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Recommended </a></li>
+                <li><a href="#">Payments</a></li>
             </ul>
         </div>
         <div class="clearfix"></div>

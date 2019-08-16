@@ -28,6 +28,10 @@ Route::post('cart/clear', 'Customer\CartController@clear');
 Route::get('payment', 'Customer\PaymentController@index');
 Route::post('payment', 'Customer\PaymentController@order');
 Route::get('payment/after', 'Customer\PaymentController@afterOrder');
+//Reset Password
+Route::post('password/reset','Admin\ProfileController@reset')->name('reset.password');
+Route::get('admin/password/reset/','Admin\ProfileController@resetPassword');
+Route::post('admin/password/update','Admin\ProfileController@passwordUpdate')->name('update.password');
 
 Route::prefix('admin')->middleware('auth')->group(function (){
     //gom nhóm cho các route phần admin

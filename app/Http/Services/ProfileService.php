@@ -44,4 +44,17 @@ class ProfileService {
         
         return $user->save();
     }
+
+    public function resetPasswordToken($email, $reset_password_token) {
+        $inputs['reset_password_token'] = $reset_password_token;
+        $inputs['expired_token'] = date('y-m-d', strtotime("+24 hours"));
+
+        return $this->user->where('email', $email)->update($inputs);
+    }
+    
+    public function passwordUpdate($inputs) {
+        $inputs['reset_password_token'] = '';
+        $inputs['expired_token'] = NULL;
+        return $this->user->where('reset_password_token', $inputs['token'])->firstOrFail()->update($inputs);
+    }
 }
